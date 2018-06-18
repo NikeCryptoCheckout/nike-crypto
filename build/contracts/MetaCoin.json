@@ -89,22 +89,36 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "pay",
+      "outputs": [
+        {
+          "name": "sufficient",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506103fc806100656000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461005c57806390b98a11146100b3578063f8b2cb4f14610118575b600080fd5b34801561006857600080fd5b5061009d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016f565b6040518082815260200191505060405180910390f35b3480156100bf57600080fd5b506100fe600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061022f565b604051808215151515815260200191505060405180910390f35b34801561012457600080fd5b50610159600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610388565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d61019484610388565b60026040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b1580156101ed57600080fd5b505af4158015610201573d6000803e3d6000fd5b505050506040513d602081101561021757600080fd5b81019080805190602001909291905050509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205410156102805760009050610382565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820f0d9410a4c79dc8fefd8e9358ab051c347e88063ab77f5e6af38136a645491450029",
-  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637bd703e81461005c57806390b98a11146100b3578063f8b2cb4f14610118575b600080fd5b34801561006857600080fd5b5061009d600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016f565b6040518082815260200191505060405180910390f35b3480156100bf57600080fd5b506100fe600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061022f565b604051808215151515815260200191505060405180910390f35b34801561012457600080fd5b50610159600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610388565b6040518082815260200191505060405180910390f35b600073__ConvertLib____________________________6396e4ee3d61019484610388565b60026040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b1580156101ed57600080fd5b505af4158015610201573d6000803e3d6000fd5b505050506040513d602081101561021757600080fd5b81019080805190602001909291905050509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205410156102805760009050610382565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820f0d9410a4c79dc8fefd8e9358ab051c347e88063ab77f5e6af38136a645491450029",
-  "sourceMap": "316:675:1:-;;;453:62;8:9:-1;5:2;;;30:1;27;20:12;5:2;453:62:1;506:5;484:8;:19;493:9;484:19;;;;;;;;;;;;;;;:27;;;;316:675;;;;;;",
-  "deployedSourceMap": "316:675:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;780:117;;8:9:-1;5:2;;;30:1;27;20:12;5:2;780:117:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;518:259;;8:9:-1;5:2;;;30:1;27;20:12;5:2;518:259:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;900:89;;8:9:-1;5:2;;;30:1;27;20:12;5:2;900:89:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;780:117;839:4;855:10;:18;874:16;885:4;874:10;:16::i;:::-;891:1;855:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;855:38:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;855:38:1;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;855:38:1;;;;;;;;;;;;;;;;848:45;;780:117;;;:::o;518:259::-;582:15;630:6;607:8;:20;616:10;607:20;;;;;;;;;;;;;;;;:29;603:47;;;645:5;638:12;;;;603:47;678:6;654:8;:20;663:10;654:20;;;;;;;;;;;;;;;;:30;;;;;;;;;;;710:6;688:8;:18;697:8;688:18;;;;;;;;;;;;;;;;:28;;;;;;;;;;;741:8;720:38;;729:10;720:38;;;751:6;720:38;;;;;;;;;;;;;;;;;;769:4;762:11;;518:259;;;;;:::o;900:89::-;954:4;971:8;:14;980:4;971:14;;;;;;;;;;;;;;;;964:21;;900:89;;;:::o",
-  "source": "pragma solidity ^0.4.17;\n\nimport \"./ConvertLib.sol\";\n\n// This is just a simple example of a coin-like contract.\n// It is not standards compatible and cannot be expected to talk to other\n// coin/token contracts. If you want to create a standards-compliant\n// token, see: https://github.com/ConsenSys/Tokens. Cheers!\n\ncontract MetaCoin {\n\tmapping (address => uint) balances;\n\n\tevent Transfer(address indexed _from, address indexed _to, uint256 _value);\n\n\tfunction MetaCoin() public {\n\t\tbalances[tx.origin] = 10000;\n\t}\n\n\tfunction sendCoin(address receiver, uint amount) public returns(bool sufficient) {\n\t\tif (balances[msg.sender] < amount) return false;\n\t\tbalances[msg.sender] -= amount;\n\t\tbalances[receiver] += amount;\n\t\tTransfer(msg.sender, receiver, amount);\n\t\treturn true;\n\t}\n\n\tfunction getBalanceInEth(address addr) public view returns(uint){\n\t\treturn ConvertLib.convert(getBalance(addr),2);\n\t}\n\n\tfunction getBalance(address addr) public view returns(uint) {\n\t\treturn balances[addr];\n\t}\n}\n",
+  "bytecode": "0x608060405234801561001057600080fd5b506127106000803273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550610432806100656000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631b9265b8146100675780637bd703e81461008957806390b98a11146100e0578063f8b2cb4f14610145575b600080fd5b61006f61019c565b604051808215151515815260200191505060405180910390f35b34801561009557600080fd5b506100ca600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101a5565b6040518082815260200191505060405180910390f35b3480156100ec57600080fd5b5061012b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610265565b604051808215151515815260200191505060405180910390f35b34801561015157600080fd5b50610186600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103be565b6040518082815260200191505060405180910390f35b60006001905090565b600073__ConvertLib____________________________6396e4ee3d6101ca846103be565b60026040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15801561022357600080fd5b505af4158015610237573d6000803e3d6000fd5b505050506040513d602081101561024d57600080fd5b81019080805190602001909291905050509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205410156102b657600090506103b8565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820d2f890f4acaf232a4db47aa530b60bfedaeb45d7943cc9e6357bc429e806a0200029",
+  "deployedBytecode": "0x608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631b9265b8146100675780637bd703e81461008957806390b98a11146100e0578063f8b2cb4f14610145575b600080fd5b61006f61019c565b604051808215151515815260200191505060405180910390f35b34801561009557600080fd5b506100ca600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101a5565b6040518082815260200191505060405180910390f35b3480156100ec57600080fd5b5061012b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610265565b604051808215151515815260200191505060405180910390f35b34801561015157600080fd5b50610186600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103be565b6040518082815260200191505060405180910390f35b60006001905090565b600073__ConvertLib____________________________6396e4ee3d6101ca846103be565b60026040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b15801561022357600080fd5b505af4158015610237573d6000803e3d6000fd5b505050506040513d602081101561024d57600080fd5b81019080805190602001909291905050509050919050565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205410156102b657600090506103b8565b816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540392505081905550816000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190505b92915050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509190505600a165627a7a72305820d2f890f4acaf232a4db47aa530b60bfedaeb45d7943cc9e6357bc429e806a0200029",
+  "sourceMap": "316:765:1:-;;;453:62;8:9:-1;5:2;;;30:1;27;20:12;5:2;453:62:1;506:5;484:8;:19;493:9;484:19;;;;;;;;;;;;;;;:27;;;;316:765;;;;;;",
+  "deployedSourceMap": "316:765:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;993:86;;;;;;;;;;;;;;;;;;;;;;;;;;;780:117;;8:9:-1;5:2;;;30:1;27;20:12;5:2;780:117:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;518:259;;8:9:-1;5:2;;;30:1;27;20:12;5:2;518:259:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;900:89;;8:9:-1;5:2;;;30:1;27;20:12;5:2;900:89:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;993:86;1031:15;1068:4;1061:11;;993:86;:::o;780:117::-;839:4;855:10;:18;874:16;885:4;874:10;:16::i;:::-;891:1;855:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;855:38:1;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;855:38:1;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;855:38:1;;;;;;;;;;;;;;;;848:45;;780:117;;;:::o;518:259::-;582:15;630:6;607:8;:20;616:10;607:20;;;;;;;;;;;;;;;;:29;603:47;;;645:5;638:12;;;;603:47;678:6;654:8;:20;663:10;654:20;;;;;;;;;;;;;;;;:30;;;;;;;;;;;710:6;688:8;:18;697:8;688:18;;;;;;;;;;;;;;;;:28;;;;;;;;;;;741:8;720:38;;729:10;720:38;;;751:6;720:38;;;;;;;;;;;;;;;;;;769:4;762:11;;518:259;;;;;:::o;900:89::-;954:4;971:8;:14;980:4;971:14;;;;;;;;;;;;;;;;964:21;;900:89;;;:::o",
+  "source": "pragma solidity ^0.4.17;\n\nimport \"./ConvertLib.sol\";\n\n// This is just a simple example of a coin-like contract.\n// It is not standards compatible and cannot be expected to talk to other\n// coin/token contracts. If you want to create a standards-compliant\n// token, see: https://github.com/ConsenSys/Tokens. Cheers!\n\ncontract MetaCoin {\n\tmapping (address => uint) balances;\n\n\tevent Transfer(address indexed _from, address indexed _to, uint256 _value);\n\n\tfunction MetaCoin() public {\n\t\tbalances[tx.origin] = 10000;\n\t}\n\n\tfunction sendCoin(address receiver, uint amount) public returns(bool sufficient) {\n\t\tif (balances[msg.sender] < amount) return false;\n\t\tbalances[msg.sender] -= amount;\n\t\tbalances[receiver] += amount;\n\t\tTransfer(msg.sender, receiver, amount);\n\t\treturn true;\n\t}\n\n\tfunction getBalanceInEth(address addr) public view returns(uint){\n\t\treturn ConvertLib.convert(getBalance(addr),2);\n\t}\n\n\tfunction getBalance(address addr) public view returns(uint) {\n\t\treturn balances[addr];\n\t}\n\t\n\tfunction pay() payable public returns(bool sufficient) {\n\t\t\n        return true;\n    }\n}\n",
   "sourcePath": "/Users/trefethen/Documents/capstone/nike-crypto/contracts/MetaCoin.sol",
   "ast": {
     "absolutePath": "/Users/trefethen/Documents/capstone/nike-crypto/contracts/MetaCoin.sol",
     "exportedSymbols": {
       "MetaCoin": [
-        112
+        120
       ]
     },
-    "id": 113,
+    "id": 121,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -123,7 +137,7 @@
         "file": "./ConvertLib.sol",
         "id": 19,
         "nodeType": "ImportDirective",
-        "scope": 113,
+        "scope": 121,
         "sourceUnit": 17,
         "src": "26:26:1",
         "symbolAliases": [],
@@ -135,9 +149,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 112,
+        "id": 120,
         "linearizedBaseContracts": [
-          112
+          120
         ],
         "name": "MetaCoin",
         "nodeType": "ContractDefinition",
@@ -147,7 +161,7 @@
             "id": 23,
             "name": "balances",
             "nodeType": "VariableDeclaration",
-            "scope": 112,
+            "scope": 120,
             "src": "337:34:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -321,7 +335,7 @@
                           "name": "tx",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 196,
+                          "referencedDeclaration": 147,
                           "src": "493:2:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_transaction",
@@ -406,7 +420,7 @@
               "parameters": [],
               "src": "480:0:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "453:62:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -454,7 +468,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 135,
                           "src": "616:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -568,7 +582,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 135,
                           "src": "663:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -710,7 +724,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 135,
                           "src": "729:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -929,7 +943,7 @@
               ],
               "src": "581:17:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "518:259:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1147,7 +1161,7 @@
               ],
               "src": "838:6:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "780:117:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -1282,27 +1296,113 @@
               ],
               "src": "953:6:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "900:89:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 118,
+              "nodeType": "Block",
+              "src": "1048:31:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 116,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1068:4:1",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 115,
+                  "id": 117,
+                  "nodeType": "Return",
+                  "src": "1061:11:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 119,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "pay",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 112,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1005:2:1"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "name": "sufficient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 119,
+                  "src": "1031:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1031:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1030:17:1"
+            },
+            "scope": 120,
+            "src": "993:86:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
           }
         ],
-        "scope": 113,
-        "src": "316:675:1"
+        "scope": 121,
+        "src": "316:765:1"
       }
     ],
-    "src": "0:992:1"
+    "src": "0:1082:1"
   },
   "legacyAST": {
     "absolutePath": "/Users/trefethen/Documents/capstone/nike-crypto/contracts/MetaCoin.sol",
     "exportedSymbols": {
       "MetaCoin": [
-        112
+        120
       ]
     },
-    "id": 113,
+    "id": 121,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -1321,7 +1421,7 @@
         "file": "./ConvertLib.sol",
         "id": 19,
         "nodeType": "ImportDirective",
-        "scope": 113,
+        "scope": 121,
         "sourceUnit": 17,
         "src": "26:26:1",
         "symbolAliases": [],
@@ -1333,9 +1433,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 112,
+        "id": 120,
         "linearizedBaseContracts": [
-          112
+          120
         ],
         "name": "MetaCoin",
         "nodeType": "ContractDefinition",
@@ -1345,7 +1445,7 @@
             "id": 23,
             "name": "balances",
             "nodeType": "VariableDeclaration",
-            "scope": 112,
+            "scope": 120,
             "src": "337:34:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1519,7 +1619,7 @@
                           "name": "tx",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 196,
+                          "referencedDeclaration": 147,
                           "src": "493:2:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_transaction",
@@ -1604,7 +1704,7 @@
               "parameters": [],
               "src": "480:0:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "453:62:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1652,7 +1752,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 135,
                           "src": "616:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1766,7 +1866,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 135,
                           "src": "663:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1908,7 +2008,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 184,
+                          "referencedDeclaration": 135,
                           "src": "729:3:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2127,7 +2227,7 @@
               ],
               "src": "581:17:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "518:259:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2345,7 +2445,7 @@
               ],
               "src": "838:6:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "780:117:1",
             "stateMutability": "view",
             "superFunction": null,
@@ -2480,18 +2580,104 @@
               ],
               "src": "953:6:1"
             },
-            "scope": 112,
+            "scope": 120,
             "src": "900:89:1",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 118,
+              "nodeType": "Block",
+              "src": "1048:31:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 116,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1068:4:1",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 115,
+                  "id": 117,
+                  "nodeType": "Return",
+                  "src": "1061:11:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 119,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "pay",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 112,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1005:2:1"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 114,
+                  "name": "sufficient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 119,
+                  "src": "1031:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 113,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1031:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1030:17:1"
+            },
+            "scope": 120,
+            "src": "993:86:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
           }
         ],
-        "scope": 113,
-        "src": "316:675:1"
+        "scope": 121,
+        "src": "316:765:1"
       }
     ],
-    "src": "0:992:1"
+    "src": "0:1082:1"
   },
   "compiler": {
     "name": "solc",
@@ -2512,9 +2698,9 @@
         "ConvertLib": "0x345ca3e014aaf5dca488057592ee47305d9b3e10"
       },
       "address": "0xf25186b5081ff5ce73482ad761db0eb0d25abfbf",
-      "transactionHash": "0x815986436497da1817d5f00a7449e47050703710d67bd29f9240b3fe4f1ceaa4"
+      "transactionHash": "0xbf36cde40c0f8312b578d00f93ff0abd1c290cbcb304132b835d84baea0f75e7"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-18T21:21:21.325Z"
+  "updatedAt": "2018-06-18T23:07:36.680Z"
 }
