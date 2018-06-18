@@ -2512,9 +2512,9 @@
         "ConvertLib": "0x345ca3e014aaf5dca488057592ee47305d9b3e10"
       },
       "address": "0xf25186b5081ff5ce73482ad761db0eb0d25abfbf",
-      "transactionHash": "0xf19b126d4b3f849c176e7814d14e3c806043cb7ec7ec80bd0c1bb393715d76e6"
+      "transactionHash": "0x815986436497da1817d5f00a7449e47050703710d67bd29f9240b3fe4f1ceaa4"
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-18T20:54:09.461Z"
+  "updatedAt": "2018-06-18T21:05:40.684Z"
 }
