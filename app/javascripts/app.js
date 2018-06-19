@@ -18,72 +18,52 @@ var accounts;
 var account;
 
 window.App = {
+	
+	
   start: function() {
     var self = this;
-
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
-
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
         alert("There was an error fetching your accounts.");
         return;
       }
-
       if (accs.length == 0) {
         alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
         return;
       }
-
       accounts = accs;
       account = accounts[0];
 
-      self.refreshBalance();
     });
   },
+  
 
   setStatus: function(message) {
     var status = document.getElementById("status");
     status.innerHTML = message;
   },
-
-  refreshBalance: function() {
-    var self = this;
-
-    var meta;
-    MetaCoin.deployed().then(function(instance) {
-      meta = instance;
-      return meta.getBalance.call(account, {from: account});
-    }).then(function(value) {
-      var balance_element = document.getElementById("balance");
-      balance_element.innerHTML = value.valueOf();
-    }).catch(function(e) {
-      console.log(e);
-      self.setStatus("Error getting balance; see log.");
-    });
-  },
+  
 
   sendCoin: function() {
+	this.setStatus("Initiating transaction... (please wait)");
     var self = this;
-
     var amount = parseInt(document.getElementById("amount").value);
-    var receiver = document.getElementById("receiver").value;
-
-    this.setStatus("Initiating transaction... (please wait)");
-
     var meta;
     MetaCoin.deployed().then(function(instance) {
       meta = instance;
-      return meta.pay({from: web3.eth.accounts[0], value: amount});
+      return meta.pay({from: account, value: web3.toWei(amount)});
     }).then(function() {
       self.setStatus("Transaction complete!");
-      self.refreshBalance();
     }).catch(function(e) {
       console.log(e);
       self.setStatus("Error sending coin; see log.");
     });
   }
+  
+  
 };
 
 window.addEventListener('load', function() {
@@ -98,5 +78,7 @@ window.addEventListener('load', function() {
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"));
   }
 
+  // start the app
   App.start();
+  
 });
