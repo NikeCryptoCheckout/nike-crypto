@@ -22,7 +22,7 @@
 	margin-top:10px;
 }
 
-#checkout #status {
+#checkout .status {
 	margin-top:8px;
 	font-size: .8em;
 }

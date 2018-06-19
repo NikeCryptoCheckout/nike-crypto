@@ -42,8 +42,11 @@ window.App = {
   
 
   setStatus: function(message) {
-    var status = document.getElementById("status");
+	  $(".status").html(message);
+   /*
+ var status = document.getElementById("status");
     status.innerHTML = message;
+*/
   },
   
 
