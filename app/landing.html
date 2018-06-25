@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Landing</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<style>
+			.container {
+				text-align: center;
+				margin: auto;
+				width: 50%;
+				padding: 10px;
+				color:#333;
+			}
+
+			h2 {
+				color:#999;
+				font-size:1.7em;
+			}
+		</style>
+	</head>
+	
+	<body>
+	<div class="container">
+		<h2>Payment Amount</h2>
+		<p>Enter the amount and select the currency for the item price, then click Pay to proceed to Crypto Checkout.</p>
+		<form action="http://localhost:8080/" method="post" enctype="application/json">
+			<input name="amount" type="text" value="49.99" size="8"/>
+			<select name="currency">
+				<option value="USD">US Dollars</option>
+				<option value="JPY">Japanese Yen</option>
+				<option value="KRW">Korean Won</option>
+				<option value="BRL">Brazilian Real</option>
+				<option value="AUD">Australian Dollar</option>
+			</select>
+			<button type="submit">Pay</button>
+		</form>
+	</div>
+	</body>
+</html>
