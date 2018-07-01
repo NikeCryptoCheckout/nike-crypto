@@ -23,8 +23,8 @@
 	<div class="container">
 		<h2>Payment Amount</h2>
 		<p>Enter the amount and select the currency for the item price, then click Pay to proceed to Crypto Checkout.</p>
-		<form action="http://localhost:8080/" method="post" enctype="application/json">
-			<input name="amount" type="text" value="49.99" size="8"/>
+		<form action="index.php" method="post" enctype="application/json">
+			<input name="amount" required="" type="text" placeholder="Enter amount" size="8"/>
 			<select name="currency">
 				<option value="USD">US Dollars</option>
 				<option value="JPY">Japanese Yen</option>

@@ -1,3 +1,10 @@
+<?php 
+if(!isset($_POST['amount']))
+{
+    header('location:landing.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +17,8 @@
 		<div class="container">
 			<h1>NikeCrypto</h1>
 		  <h2>Buy Shoes with Cryptos</h2>
-		  <h3>Balance: <span class="black"><span id="balance">(todo)</span> ETH</span></h3>
-		  <input class="form-control" type="text" id="amount" placeholder="$49.99" ></input>
+		  <h3>Balance: <span class="black"><span id="balance">(todo)</span> <?=$_POST['currency'];?></span></h3>
+		  <input class="form-control" required="" type="text" id="amount" value="<?=$_POST['amount'];?> <?=$_POST['currency'];?>" ></input>
 		  <button class="btn btn-primary" id="send" onclick="App.sendCoin()">Pay</button>
 		  <p class="status"></p>
 		  <p class="hint"><strong>Hint:</strong> open the browser developer console (inspect in chrome) to view any errors and warnings.</p>
