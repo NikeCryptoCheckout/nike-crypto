@@ -14,7 +14,7 @@ Your first step is to find something that can run a xAMP stack on your machine. 
 * M = MySQL or some other DB
 * P = PHP (that's what we need!)
 
-If you are on mac, you can download MAMP, then install the npm CLI for MAMP. Windows people can use XAMPP. You'll need to find you own way for this part, but basic requirements is you need to find a tool and figure out how to run a xAMP server and point it to a specific folder with a specific port.
+If you are on mac, you can download MAMP, then install the npm CLI for MAMP. Windows people can use XAMPP. You'll need to find your own way for this part, but basic requirements is you need to find a tool and figure out how to run a xAMP server and point it to a specific folder with a specific port.
 
 For example, if you use MAMP and the mamp cli, you simple go into the folder you want and run
 
