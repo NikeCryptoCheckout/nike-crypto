@@ -24,7 +24,7 @@ For example, if you use MAMP and the mamp cli, you simply go into the folder you
 
 ### Not So Fast
 
-You might think that all you need to do now is run your xAMP at the `/app` subdirectory. Sadly, Truffle has set up a bunch of pre-compilers for their javascript, so running your third party web server to that results in a whole bunch of "I don't know where this file is". The reason editing things in `/app` used to work is because when you ran `npm run dev` webpack would set up an interpreter to live compile the `/app` directory into a usable thing. The point here is that app.js is far more readable in this state than it is after it's compiled. 
+You might think that all you need to do now is run your xAMP at the `/app` subdirectory. Sadly, Truffle has set up a bunch of pre-compilers for their javascript, so running your third party web server to that results in a whole bunch of "I don't know where this file is". The reason editing things in `/app` used to work is because when you ran `npm run dev` webpack would set up an interpreter to live compile the `/app` directory into a usable thing. The point here is that `app.js` is far more readable in this state than it is after it's compiled. 
 
 So basically, when you run your xAMP to this directory, it's trying to run code that is half compiled, (more like linked, but who cares). What you need to do is compile the truffle app before pointing your normal webserver to it.
 
