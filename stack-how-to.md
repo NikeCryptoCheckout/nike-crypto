@@ -39,6 +39,10 @@ So - what we are going to do is run `npm run build` . You will notice the `/app`
 
 # Quickstart
 
+## Every time you pull
+
+* Run `npm run build`
+
 ## Edit/Build Web3JS
 
 * Edit anything you want in `/app`
