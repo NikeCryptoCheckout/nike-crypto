@@ -54,7 +54,7 @@ window.App = {
   sendCoin: function() {
 	this.setStatus("Initiating transaction... (please wait)");
     var self = this;
-    var amount = parseInt($("#amount").html());
+    var amount = parseFloat($("#amount").html());
     CryptoCheckout.deployed().then(function(instance) {
       return instance.pay({from: account, value: web3.toWei(amount)});
     }).then(function() {
