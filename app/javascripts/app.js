@@ -24,11 +24,11 @@ window.App = {
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
-        alert("There was an error fetching your accounts.");
+        self.disablePayment("There was an error fetching your accounts.");
         return;
       }
       if (accs.length == 0) {
-        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+        self.disablePayment("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
         return;
       }
       accounts = accs;
@@ -37,27 +37,31 @@ window.App = {
     });
   },
   
+  disablePayment: function(message) {
+	  this.setStatus(message,true);
+	  $("#send").prop("disabled",true);
+  },
 
-  setStatus: function(message) {
+  setStatus: function(message, err=false) {
 	  $(".status").html(message);
-   /*
- var status = document.getElementById("status");
-    status.innerHTML = message;
-*/
+	  if (err)
+	  	$(".status").css("color","red");
+		else
+			$(".status").css("color","#333");
   },
   
 
   sendCoin: function() {
 	this.setStatus("Initiating transaction... (please wait)");
     var self = this;
-    var amount = parseInt(document.getElementById("amount").value);
+    var amount = parseInt($("#amount").html());
     CryptoCheckout.deployed().then(function(instance) {
       return instance.pay({from: account, value: web3.toWei(amount)});
     }).then(function() {
       self.setStatus("Transaction complete!");
     }).catch(function(e) {
       console.log(e);
-      self.setStatus("Error sending coin; see log.");
+      self.setStatus("Payment request rejected.",true);
     });
   }
   
@@ -67,11 +71,11 @@ window.App = {
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
-    console.warn("Using web3 detected from external source.")
+    console.warn("Using web3 detected from external source!")
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
   } else {
-	  console.error("web3 not detected!")
+	  App.disablePayment("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.",true);
   }
 
   // start the app
