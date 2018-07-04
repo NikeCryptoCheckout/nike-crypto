@@ -1,0 +1,243 @@
+html,body {
+	background-color: #eee;
+	font-family: "Roboto";
+	color:#333;
+}
+
+.center-all {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin:0 auto;
+}
+
+#main {
+	height:100vh;
+	font-size: 1em; 
+	font-size: 14px; 
+	font-weight: 300;
+}
+
+#main .logo {
+	margin: 0 auto 20px auto;
+	height: 16px;
+	display: block;
+}
+
+@media screen and (max-width: 420px) {
+	#main .logo {
+		display: none;	
+	}
+}
+
+#main .modal-container {
+	max-width: 350px;
+	overflow: hidden !im;
+}
+
+#main .chk-modal {
+	width:100%;
+	background-color: #fff;
+	height: 600px;
+	box-shadow: 1px 2px 11px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	position: relative;
+}
+
+#main .start-modal {
+	width:100%;
+	background-color: #fff;
+	height: 230px;
+	box-shadow: 1px 2px 11px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	position: relative;
+}
+
+@media screen and (max-width: 420px) {
+	#main .modal-container.center-all {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left:0;
+		transform:none;
+		max-width: none;
+		box-shadow: none;
+	}
+	#main .chk-modal {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left:0;
+		transform:none;
+		max-width: none;
+		box-shadow: none;
+	}
+	#main .start-modal {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left:0;
+		transform:none;
+		max-width: none;
+		box-shadow: none;
+	}
+}
+
+
+#main .hero-header {
+	height: 200px;
+	background: linear-gradient(#f85e11, #f84610);
+	color:#fff;
+	text-align: center;
+}
+
+#main .hero-header h3 {
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: 300;
+}
+
+#main .hero-header h1 {
+	text-transform: uppercase;
+	font-size: 2.8em;
+	margin: 20px 0;
+}
+
+#main .method-selection {
+	padding: 22px 30px;
+	background-color: #f3f3f3;
+	width: 100%;
+	position: relative;
+	font-size: 14px; 
+  line-height: 16px !important; 
+  font-weight: 300;
+  transition: 0.2s;
+}
+#main .method-selection.active {
+	background-color: #e3e3e3;
+	transition: 0.2s;
+}
+/* body select.select_box */ 
+#main select { 
+		position: absolute;
+		top:0px;
+    display: block;
+    padding: 22px 30px !important; 
+    right:0px;
+    height: auto !important; 
+    border: none; 
+    background-color: transparent; 
+    color: #444444; 
+    font-size: 14px; 
+    line-height: 16px !important; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+} 
+/* body select.select_box option */ 
+#main select option { 
+    padding: 0 4px; 
+} 
+/* for IE and Edge */ 
+select::-ms-expand { 
+    display: none; 
+} 
+select:disabled::-ms-expand { 
+    background: #f60; 
+}
+select:focus {
+	outline: none;
+	
+}
+#main .error {
+	color:#ce2807;
+}
+
+#main .summary {
+	padding: 30px 30px;
+}
+#main .summary h1 {
+	font-size: 1em; 
+	text-transform: uppercase;
+}
+
+#main .summary .summary-row {
+
+}
+
+#main .summary .summary-row .key {
+	
+	
+}
+
+#main .summary .summary-row .value {
+	font-size: 1em; 
+	text-align: right;
+}
+
+#main .summary .summary-row .key.key-big {
+	vertical-align: bottom;
+	line-height: 60px;
+	font-weight: normal;
+	margin-top: 20px;
+}
+
+#main .summary .summary-row .value.value-big {
+	font-size: 35px;
+	margin-top: 20px;
+}
+
+#main button.next-btn {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+	padding: 0;
+	border: none;
+	opacity:inherit;
+}
+
+#main button.next-btn div {
+	width: 100%;
+	background: linear-gradient(#f85e11, #f84610);
+	padding: 25px;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.3em;
+	transition: 0.2s;
+	opacity:inherit;
+}
+
+#main button.next-btn:hover {
+	text-decoration: none;
+}
+
+#main button.next-btn:hover div {
+	text-decoration: none;
+	background: linear-gradient(#cf3f06, #c51800);
+	transition: 0.2s;
+}
+
+#main .disabled {
+	width:100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 1);
+	text-align: center;
+}
+
+#main .disabled i {
+	color: #f85e11;
+	font-size: 4em;
+	margin-bottom: 40px;
+}
+
+#main .start-input {
+	margin-top: 10px;
+}
