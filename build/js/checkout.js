@@ -5,11 +5,14 @@ var balance = 0;
 ///////////////// Start ///////////////
 
 $(document).ready(function() {
-		setBalance(0.345667);
-		setPrice($("#post-price").html());
-		setTimeout(function() {
-			unlock();
-		}, 1000);
+                if (typeof web3 !== 'undefined') {
+                    setPrice($("#post-price").html());
+                    setBalance(0.345667);  // should do user's balance here
+                    unlock();
+                    
+                } else {
+                    alert("In order to use this app, you must use a Crypto-enabled browser.");
+                }
 });
 
 ///////////////// Public Interface ///////////////
