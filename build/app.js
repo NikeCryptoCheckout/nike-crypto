@@ -28090,8 +28090,9 @@ window.App = {
       account = accounts[0];
     });
     setPrice($("#post-price").html());
-    setBalance(0.345667); // should do user's balance here
+    setBalance(0.345667); // should do user's balance here instead of 0.345667
     unlock();
+    // check for sufficient balance after unlocking?
   },
 
   disablePayment: function disablePayment(message) {
@@ -28109,14 +28110,17 @@ window.App = {
   sendCoin: function sendCoin() {
     this.setStatus("Initiating transaction... (please wait)");
     var self = this;
-    var amount = parseFloat($("#amount").html());
+    //var amount = parseFloat($("#amount").html());
+    var tokenAmt = parseFloat(Math.round(convertToToken(price) * 100) / 100).toFixed(2);
     CryptoCheckout.deployed().then(function (instance) {
-      return instance.pay({ from: account, value: web3.toWei(amount) });
+      return instance.pay({ from: account, value: web3.toWei(tokenAmt) });
     }).then(function () {
-      self.setStatus("Transaction complete!");
+      //self.setStatus("Transaction complete!");
+      console.warn("Transaction complete!");
     }).catch(function (e) {
       console.log(e);
-      self.setStatus("Payment request rejected.", true);
+      //self.setStatus("Payment request rejected.",true);
+      console.warn("Payment request rejected.");
     });
   }
 
@@ -28131,6 +28135,7 @@ window.addEventListener('load', function () {
     App.start();
   } else {
     App.disablePayment("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.", true);
+    alert("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.");
   }
 });
 
