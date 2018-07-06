@@ -1,18 +1,13 @@
 var token = "ETH";
 var price = 0;
 var balance = 0;
+var accounts;
+var account;
 
 ///////////////// Start ///////////////
 
 $(document).ready(function() {
-                if (typeof web3 !== 'undefined') {
-                    setPrice($("#post-price").html());
-                    setBalance(0.345667);  // should do user's balance here
-                    unlock();
-                    
-                } else {
-                    alert("In order to use this app, you must use a Crypto-enabled browser.");
-                }
+
 });
 
 ///////////////// Public Interface ///////////////
@@ -70,6 +65,12 @@ function convertToToken(usd) {
 	return usd / 450;
 }
 
+function sendCoin() {
+        this.setStatus("Initiating transaction... (please wait)");
+        var self = this;
+        var amount = 
+}
+
 $( "select" ).focus(function() {
   $(".method-selection").css("background-color","#ddd");
 });
@@ -81,5 +82,6 @@ $( "select" ).change(function() {
   $( "select" ).blur();
 });
 $( "#pay-btn" ).click(function() {
-  alert("Needs to be implemented");
+  App.sendCoin();
+
 });

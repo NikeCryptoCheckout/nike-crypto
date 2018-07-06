@@ -35,6 +35,10 @@ window.App = {
       account = accounts[0];
 
     });
+    setPrice($("#post-price").html());
+    setBalance(0.345667);  // should do user's balance here instead of 0.345667
+    unlock();
+    // check for sufficient balance after unlocking?
   },
   
   disablePayment: function(message) {
@@ -74,11 +78,8 @@ window.addEventListener('load', function() {
     console.warn("Using web3 detected from external source!")
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
+    App.start();
   } else {
 	  App.disablePayment("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.",true);
   }
-
-  // start the app
-  App.start();
-  
 });
