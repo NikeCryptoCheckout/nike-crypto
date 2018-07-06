@@ -67,8 +67,7 @@ window.App = {
      console.warn("Transaction complete!");
     }).catch(function(e) {
       console.log(e);
-      //self.setStatus("Payment request rejected.",true);
-      console.warn("Payment request rejected.");
+      alert(e.message + " Transaction failed.");
     });
   }
   
