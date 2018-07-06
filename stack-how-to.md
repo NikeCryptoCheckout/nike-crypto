@@ -14,11 +14,27 @@ Your first step is to find something that can run a xAMP stack on your machine. 
 * M = MySQL or some other DB
 * P = PHP (that's what we need!)
 
-If you are on mac, you can download MAMP, then install the npm CLI for MAMP. Windows people can use XAMPP. You'll need to find your own way for this part, but basic requirements is you need to find a tool and figure out how to run a xAMP server and point it to a specific folder with a specific port.
+MAC - 
+
+If you are on mac, you can download MAMP, then install the npm CLI for MAMP.
 
 For example, if you use MAMP and the mamp cli, you simply go into the folder you want and run
 
 `mamp . -p 8080`
+
+Windows -
+
+If you are on windows, you can use XAMPP. You will need to configure the default port and directory to match above. To do this, using the XAMPP control panel, navigate to : config (global config)-> Service and Port Settings ->  and set the Main port for Apache to 8080 (from 80). Then back on the main interface, enter Apache's config to change the port and directory. Edit the first file 'httpd.conf'. There should only be four lines you need to edit.
+
+Listen 80 -> Listen 8080
+
+ServerName localhost:80 -> ServerName localhost:8080
+
+DocumentRoot "C:\xampp\..." -> DocumentRoot "C:\WhereverYourBuildFolderIsStored"
+
+<Directory "C:\xampp\..."> -> <Directory "C:\WhereverYourBuildFolderIsStored">
+
+Then, to start a Xampp server you can just click start on the Apache service using the Xampp control panel to start.
 
 ## Okay Let's Run It
 
