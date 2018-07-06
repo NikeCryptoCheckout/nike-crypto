@@ -65,12 +65,6 @@ function convertToToken(usd) {
 	return usd / 450;
 }
 
-function sendCoin() {
-        this.setStatus("Initiating transaction... (please wait)");
-        var self = this;
-        var amount = 
-}
-
 $( "select" ).focus(function() {
   $(".method-selection").css("background-color","#ddd");
 });
