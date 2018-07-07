@@ -59,6 +59,19 @@ function setBalance(bal) {
 	$( "#balance" ).html(tokenFormatted+" " +token);
 }
 
+function setTransactionStatus(status) {
+	$("#btn-default").addClass("hidden");
+	$("#btn-loading").addClass("hidden");
+	$("#btn-complete").addClass("hidden");
+	$("#btn-"+status).removeClass("hidden");
+	
+	if (status == "complete") {
+		$("#thankyou").removeClass("hidden");
+		$("#thankyou").addClass("animated");
+		$("#thankyou").addClass("slideInUp");
+	}
+}
+
 ///////////////// Helpers ///////////////
 
 function convertToToken(usd) {

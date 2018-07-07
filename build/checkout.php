@@ -55,14 +55,25 @@ if(!isset($_POST['amount']) && !isset($_GET['amount']))
 						<div id="total" class="col-8 value value-big">0.22 ETH</div> <!-- add 'error' to class on insufficient funds -->
 					</div>
 					<p id="error-msg" class="error"></p> <!-- print error here -->
+					
 				</div>
 				<button id="pay-btn" class="next-btn">
-					<div>Complete</div>
+					<div class="btn-inner">
+						<span id="btn-default">Complete</span>
+						<div id="btn-loading" class="hidden spinner"></div>
+						<i id="btn-complete" class="fas fa-check animated pulse hidden"></i>
+					</div>
 				</button>
 				<div id="lockscreen" class="disabled"> <!-- add display:none when web3js found -->
 					<div class="center-all">
 						<i id="lock-icon" class="fas fa-lock animated infinite pulse"></i>
 						<p class="disabled-status">Connecting to Wallet</p>
+					</div>
+				</div>
+				<div id="thankyou" class="disabled hidden"> <!-- add display:none when web3js found -->
+					<div class="center-all">
+						<i id="lock-icon" class="fas fa-check-circle"></i>
+						<p class="disabled-status">Thank you! Your order has been received. Click <a href="/">here</a> to restart the demo.</p>
 					</div>
 				</div>
 			</div>
@@ -75,3 +86,4 @@ if(!isset($_POST['amount']) && !isset($_GET['amount']))
   <script src="js/checkout.js"></script>
 </body>
 </html>
+

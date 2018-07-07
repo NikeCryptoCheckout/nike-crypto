@@ -22,7 +22,7 @@
 						<input name="amount" class="start-input form-control" value="200.00" type="number" min="0.01" step="0.01">
 					</div>
 					<button id="start-btn" type="submit" class="next-btn">
-						<div>Checkout</div>
+						<div class="btn-inner">Checkout</div>
 					</button>
 				</form>
 			</div>

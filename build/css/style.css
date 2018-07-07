@@ -11,6 +11,20 @@ html,body {
   margin:0 auto;
 }
 
+.hidden {
+	display: none;	
+}
+
+a {
+	color: #f85e11;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f84610;
+	text-decoration: none;
+}
+
 #main {
 	height:100vh;
 	font-size: 1em; 
@@ -200,7 +214,7 @@ select:focus {
 	opacity:inherit;
 }
 
-#main button.next-btn div {
+#main button.next-btn .btn-inner {
 	width: 100%;
 	background: linear-gradient(#f85e11, #f84610);
 	padding: 25px;
@@ -216,7 +230,11 @@ select:focus {
 	text-decoration: none;
 }
 
-#main button.next-btn:hover div {
+#main button.next-btn:focus {
+	outline:none;
+}
+
+#main button.next-btn:hover .btn-inner {
 	text-decoration: none;
 	background: linear-gradient(#cf3f06, #c51800);
 	transition: 0.2s;
@@ -228,8 +246,9 @@ select:focus {
 	position: absolute;
 	top:0;
 	left: 0;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: #fff;
 	text-align: center;
+	padding: 30px;
 }
 
 #main .disabled i {
@@ -240,4 +259,34 @@ select:focus {
 
 #main .start-input {
 	margin-top: 10px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  margin: -10px auto ;
+  background-color: #fbceb7;
+
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
 }
