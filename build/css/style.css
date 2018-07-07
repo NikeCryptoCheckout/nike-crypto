@@ -26,7 +26,7 @@ a:hover {
 }
 
 #main {
-	height:100vh;
+	height:100%;
 	font-size: 1em; 
 	font-size: 14px; 
 	font-weight: 300;
@@ -38,7 +38,7 @@ a:hover {
 	display: block;
 }
 
-@media screen and (max-width: 420px) {
+@media only screen and (max-width: 576px) {
 	#main .logo {
 		display: none;	
 	}
@@ -67,7 +67,7 @@ a:hover {
 	position: relative;
 }
 
-@media screen and (max-width: 420px) {
+@media only screen and (max-width: 576px) {
 	#main .modal-container.center-all {
 		width: 100%;
 		height: 100%;
