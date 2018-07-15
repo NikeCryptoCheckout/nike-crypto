@@ -1,8 +1,12 @@
 var token = "ETH";
 var price = 0;
 var balance = 0;
+var usdRate = 0;
 var accounts;
 var account;
+
+var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
+var sdk = new SDK("E0E2D48D-7A91-4E75-A2DD-3BCE376711AA")
 
 ///////////////// Start ///////////////
 
@@ -40,13 +44,32 @@ function setError(error) {
 }
 
 function setPrice(usd) {
-	price = usd;
-	var usdFormatted = parseFloat(Math.round(price * 100) / 100).toFixed(2);
-	$( "#price-usd" ).html("$"+usdFormatted);
-	var tokenFormatted = parseFloat(Math.round(convertToToken(price) * 100) / 100).toFixed(2);
-	$( "#price-crypto" ).html(tokenFormatted+" " +token);
-	$( "#subtotal" ).html(tokenFormatted+" " +token);
-	$( "#total" ).html(tokenFormatted+" " +token);
+        //var usdRate;
+        var t = new Date();
+        price = usd;
+
+        sdk.exchange_rates_get_specific_rate(token, "USD", t)
+        //.then(function (Exchange_rates_get_specific_rate) {
+        .then((Exchange_rates_get_specific_rate) => {
+            //console.log(Exchange_rates_get_specific_rate)
+            usdRate = Number(Exchange_rates_get_specific_rate["rate"]);
+            console.log("usdRate: " + typeof usdRate + ' ' + usdRate)
+        })
+        .then(() => {
+            console.log(usdRate)
+
+            var usdFormatted = parseFloat(Math.round(price * 100) / 100).toFixed(2);
+            $( "#price-usd" ).html("$"+usdFormatted);
+            console.log("usdRate: " + typeof usdRate + ' ' + usdRate)
+            var tokenFormatted = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
+            console.log("tokenFormatted: "+ typeof tokenFormatted +' '+ tokenFormatted);
+            $( "#price-crypto" ).html(tokenFormatted+" " +token);
+            $( "#subtotal" ).html(tokenFormatted+" " +token);
+            $( "#total" ).html(tokenFormatted+" " +token);
+        })
+        .catch((err) => {
+            console.log('get rate failed')
+        });
 }
 
 function setToken(symbol) {
@@ -74,8 +97,14 @@ function setTransactionStatus(status) {
 
 ///////////////// Helpers ///////////////
 
-function convertToToken(usd) {
-	return usd / 450;
+function convertToToken(usd, usdRate) {
+        //console.log(typeof parseFloat(usd).toFixed(2));
+        //console.log(parseFloat(usd).toFixed(2));
+        console.log("usdRate: " + typeof usdRate + ' ' + usdRate)
+        //var tokenVal = parseFloat(parseFloat(usd)/usdRate).toFixed(2);
+        var tokenVal = Number(usd) / Number(usdRate) ;
+        console.log("tokenVal: " + typeof tokenVal + ' ' + tokenVal);
+	return tokenVal;
 }
 
 $( "select" ).focus(function() {
@@ -90,5 +119,4 @@ $( "select" ).change(function() {
 });
 $( "#pay-btn" ).click(function() {
   App.sendCoin();
-
 });

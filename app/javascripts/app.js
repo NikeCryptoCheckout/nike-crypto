@@ -54,12 +54,11 @@ window.App = {
 			$(".status").css("color","#333");
   },
   
-
   sendCoin: function() {
 	this.setStatus("Initiating transaction... (please wait)");
     var self = this;
     //var amount = parseFloat($("#amount").html());
-    var tokenAmt = parseFloat(Math.round(convertToToken(price) * 100) / 100).toFixed(2);
+    var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
     CryptoCheckout.deployed().then(function(instance) {
       return instance.pay({from: account, value: web3.toWei(tokenAmt)});
     }).then(function() {
