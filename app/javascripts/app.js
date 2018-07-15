@@ -35,9 +35,9 @@ window.App = {
       account = accounts[0];
 
     });
-    setPrice($("#post-price").html());
     setBalance(0.345667);  // should do user's balance here instead of 0.345667
-    unlock();
+    setPrice($("#post-price").html());
+    //unlock();  //called inside setPrice()
     // check for sufficient balance after unlocking?
   },
   

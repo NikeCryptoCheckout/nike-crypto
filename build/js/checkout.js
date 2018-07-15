@@ -44,28 +44,23 @@ function setError(error) {
 }
 
 function setPrice(usd) {
-        //var usdRate;
         var t = new Date();
         price = usd;
 
         sdk.exchange_rates_get_specific_rate(token, "USD", t)
-        //.then(function (Exchange_rates_get_specific_rate) {
         .then((Exchange_rates_get_specific_rate) => {
-            //console.log(Exchange_rates_get_specific_rate)
             usdRate = Number(Exchange_rates_get_specific_rate["rate"]);
-            console.log("usdRate: " + typeof usdRate + ' ' + usdRate)
         })
         .then(() => {
-            console.log(usdRate)
-
             var usdFormatted = parseFloat(Math.round(price * 100) / 100).toFixed(2);
             $( "#price-usd" ).html("$"+usdFormatted);
-            console.log("usdRate: " + typeof usdRate + ' ' + usdRate)
             var tokenFormatted = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
-            console.log("tokenFormatted: "+ typeof tokenFormatted +' '+ tokenFormatted);
             $( "#price-crypto" ).html(tokenFormatted+" " +token);
             $( "#subtotal" ).html(tokenFormatted+" " +token);
             $( "#total" ).html(tokenFormatted+" " +token);
+        })
+        .then(() => {
+            unlock();
         })
         .catch((err) => {
             console.log('get rate failed')
@@ -98,13 +93,7 @@ function setTransactionStatus(status) {
 ///////////////// Helpers ///////////////
 
 function convertToToken(usd, usdRate) {
-        //console.log(typeof parseFloat(usd).toFixed(2));
-        //console.log(parseFloat(usd).toFixed(2));
-        console.log("usdRate: " + typeof usdRate + ' ' + usdRate)
-        //var tokenVal = parseFloat(parseFloat(usd)/usdRate).toFixed(2);
-        var tokenVal = Number(usd) / Number(usdRate) ;
-        console.log("tokenVal: " + typeof tokenVal + ' ' + tokenVal);
-	return tokenVal;
+        return Number(usd) / Number(usdRate) ;
 }
 
 $( "select" ).focus(function() {
