@@ -2,8 +2,6 @@ var token = "ETH";
 var price = 0;
 var balance = 0;
 var usdRate = 0;
-var accounts;
-var account;
 
 var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
 var sdk = new SDK("E0E2D48D-7A91-4E75-A2DD-3BCE376711AA")
@@ -71,10 +69,17 @@ function setToken(symbol) {
 	token = symbol;
 }
 
-function setBalance(bal) {
-	balance = bal;
-	var tokenFormatted = parseFloat(Math.round(balance * 100) / 100).toFixed(2);
-	$( "#balance" ).html(tokenFormatted+" " +token);
+function setBalance(account) {
+        web3.eth.getBalance(account, function(error, result) {
+            if (error) {
+                console.error(error);
+            } else {
+                balance = Number(web3.fromWei(result));
+                //console.log('account bal: ' + balance);
+                var tokenFormatted = parseFloat(Math.round(balance * 100) / 100).toFixed(2);
+                $( "#balance" ).html(tokenFormatted+" " +token);
+            }
+        });
 }
 
 function setTransactionStatus(status) {
