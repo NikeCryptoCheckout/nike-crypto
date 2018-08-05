@@ -28072,71 +28072,103 @@ var account;
 
 window.App = {
 
-  start: function start() {
-    var self = this;
-    // Bootstrap the CryptoCheckout abstraction for Use.
-    CryptoCheckout.setProvider(web3.currentProvider);
-    // Get the initial account balance so it can be displayed.
-    web3.eth.getAccounts(function (err, accs) {
-      if (err != null) {
-        self.disablePayment("There was an error fetching your accounts.");
-        return;
-      }
-      if (accs.length == 0) {
-        self.disablePayment("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
-        return;
-      }
-      accounts = accs;
-      account = accounts[0];
-      setBalance(account);
-    });
-    //setBalance(0.345667);  // should do user's balance here instead of 0.345667
-    setPrice($("#post-price").html());
-    //unlock();  //called inside setPrice()
-    // check for sufficient balance after unlocking?
-  },
+	start: function start() {
+		var self = this;
+		// Bootstrap the CryptoCheckout abstraction for Use.
+		CryptoCheckout.setProvider(web3.currentProvider);
+		// Get the initial account balance so it can be displayed.
+		web3.eth.getAccounts(function (err, accs) {
+			if (err != null) {
+				self.disablePayment("There was an error fetching your accounts.");
+				return;
+			}
+			if (accs.length == 0) {
+				self.disablePayment("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+				return;
+			}
+			accounts = accs;
+			account = accounts[0];
+			setBalance(account);
+		});
+		setPrice($("#post-price").html());
+		// check for sufficient balance after unlocking?
+	},
 
-  disablePayment: function disablePayment(message) {
-    this.setStatus(message, true);
-    $("#send").prop("disabled", true);
-  },
+	disablePayment: function disablePayment(message) {
+		this.setStatus(message, true);
+		$("#send").prop("disabled", true);
+	},
 
-  setStatus: function setStatus(message) {
-    var err = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+	setStatus: function setStatus(message) {
+		var err = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-    $(".status").html(message);
-    if (err) $(".status").css("color", "red");else $(".status").css("color", "#333");
-  },
+		$(".status").html(message);
+		if (err) $(".status").css("color", "red");else $(".status").css("color", "#333");
+	},
 
-  sendCoin: function sendCoin() {
-    this.setStatus("Initiating transaction... (please wait)");
-    var self = this;
-    //var amount = parseFloat($("#amount").html());
-    var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
-    CryptoCheckout.deployed().then(function (instance) {
-      return instance.pay({ from: account, value: web3.toWei(tokenAmt) });
-    }).then(function () {
-      //self.setStatus("Transaction complete!");
-      console.warn("Transaction complete!");
-    }).catch(function (e) {
-      console.log(e);
-      alert(e.message + " Transaction failed.");
-    });
-  }
+	sendCoin: function sendCoin() {
+		var coin = $(".method-selection select").val(); //to get the string of the dropbox
+		var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
+		switch (coin) {
+			case "ETH":
+				this.setStatus("Initiating transaction... (please wait)");
+				var self = this;
+				//var amount = parseFloat($("#amount").html());
+				//var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
+				CryptoCheckout.deployed().then(function (instance) {
+					return instance.pay({ from: account, value: web3.toWei(tokenAmt) });
+				}).then(function () {
+					//self.setStatus("Transaction complete!");
+					console.warn("Transaction complete!");
+				}).catch(function (e) {
+					console.log(e);
+					alert(e.message + " Transaction failed.");
+				});
+				break;
+			default:
+				var nikeAddress = "0xBc17115BDe6a3f5FE9Bb68c02450F788ED9236d3";
+				var tokenAddress = "0x2A65D41dbC6E8925bD9253abfAdaFab98eA53E34";
+				//var myContract = web3.eth.contract(myContract.abi);
+				//var instance = myContract.at("address");
+				var minABI = [{
+					"constant": false,
+					"inputs": [{
+						"name": "_to",
+						"type": "address"
+					}, {
+						"name": "_value",
+						"type": "uint256"
+					}],
+					"name": "transfer",
+					"outputs": [{
+						"name": "",
+						"type": "bool"
+					}],
+					"type": "function"
+				}];
+
+				var _contract = new web3.eth.Contract(minABI, tokenAddress);
+				_contract.methods.trasfer(nikeAddress, tokenAmt).send({ from: account }).on('transactionHash', function (hash) {
+					console.log(hash);
+				});
+				break;
+
+		}
+	}
 
 };
 
 window.addEventListener('load', function () {
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
-    console.warn("Using web3 detected from external source!");
-    // Use Mist/MetaMask's provider
-    window.web3 = new _web2.default(web3.currentProvider);
-    App.start();
-  } else {
-    App.disablePayment("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.", true);
-    alert("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.");
-  }
+	// Checking if Web3 has been injected by the browser (Mist/MetaMask)
+	if (typeof web3 !== 'undefined') {
+		console.warn("Using web3 detected from external source!");
+		// Use Mist/MetaMask's provider
+		window.web3 = new _web2.default(web3.currentProvider);
+		App.start();
+	} else {
+		App.disablePayment("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.", true);
+		alert("Web3 Provider (MetaMask/Mist/Cypher) required to Complete Checkout.");
+	}
 });
 
 /***/ }),
