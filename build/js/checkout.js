@@ -21,6 +21,7 @@ var usdRate = 0;
 
 var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
 var sdk = new SDK("E0E2D48D-7A91-4E75-A2DD-3BCE376711AA")
+//var sdk = new SDK("CC07C5FD-240C-4A4E-A58A-C7D5FD2D4619")
 
 ///////////////// Start ///////////////
 
