@@ -1,4 +1,14 @@
 var token = "ETH";
+function typeUpdate() {
+    var a = document.getElementById("cointType")
+    token = a.options[a.selectedIndex].innerHTML;
+    
+    document.getElementById("price-crypto").innerHTML = "updating";    
+    document.getElementById("subtotal").innerHTML = "updating";
+    document.getElementById("total").innerHTML = "updating";
+    
+    setPrice(document.getElementById("post-price").innerHTML);  
+}
 var price = 0;
 var balance = 0;
 var usdRate = 0;
