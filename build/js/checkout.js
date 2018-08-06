@@ -2,6 +2,12 @@ var token = "ETH";
 function typeUpdate() {
     var a = document.getElementById("cointType")
     token = a.options[a.selectedIndex].innerHTML;
+
+    web3.eth.getAccounts(function (err, accs) {
+        accounts = accs;
+        account = accounts[0];
+        setBalance(account);
+    });
     
     document.getElementById("price-crypto").innerHTML = "updating";    
     document.getElementById("subtotal").innerHTML = "updating";
@@ -80,16 +86,87 @@ function setToken(symbol) {
 }
 
 function setBalance(account) {
-        web3.eth.getBalance(account, function(error, result) {
-            if (error) {
-                console.error(error);
-            } else {
-                balance = Number(web3.fromWei(result));
-                //console.log('account bal: ' + balance);
-                var tokenFormatted = parseFloat(Math.round(balance * 100) / 100).toFixed(2);
-                $( "#balance" ).html(tokenFormatted+" " +token);
-            }
-        });
+    var minABI = [
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "name",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_owner",
+                    "type": "address"
+                }
+            ],
+            "name": "balanceOf",
+            "outputs": [
+                {
+                    "name": "balance",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "symbol",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "payable": false,
+            "type": "function"
+        }
+    ];
+
+    switch (token) {
+        case "ETH":
+            web3.eth.getBalance(account, function (error, result) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    balance = Number(web3.fromWei(result));
+                    var tokenFormatted = parseFloat(Math.round(balance * 100) / 100).toFixed(2);
+                    $("#balance").html(tokenFormatted + " " + token);
+                }
+            });
+            break;
+        case "BTC": // Could not test yet
+            //let tokenAddress = "0x13f8aa62bac4ae95282faad074a5726e3ff40b52";
+            //let contract = new web3.eth.Contract(minABI).at(tokenAddress);
+            //let tokenBalance = contract.methods.balanceOf(account);
+            //$("#balance").html(tokenBalance + " " + token);
+            //break;
+        default:
+            $("#balance").html("Balance Unavailable.");
+    }
 }
 
 function setTransactionStatus(status) {

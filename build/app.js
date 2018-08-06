@@ -28125,11 +28125,11 @@ window.App = {
 					alert(e.message + " Transaction failed.");
 				});
 				break;
+			//for BTC,LTC .. etc
 			default:
 				var nikeAddress = "0xBc17115BDe6a3f5FE9Bb68c02450F788ED9236d3";
-				var tokenAddress = "0x2A65D41dbC6E8925bD9253abfAdaFab98eA53E34";
-				//var myContract = web3.eth.contract(myContract.abi);
-				//var instance = myContract.at("address");
+				var tokenAddress = "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07";
+				//minimum abi to interact with the erc contract
 				var minABI = [{
 					"constant": false,
 					"inputs": [{
@@ -28146,9 +28146,9 @@ window.App = {
 					}],
 					"type": "function"
 				}];
-
-				var _contract = new web3.eth.Contract(minABI, tokenAddress);
-				_contract.methods.trasfer(nikeAddress, tokenAmt).send({ from: account }).on('transactionHash', function (hash) {
+				//get instace and transfer 
+				var _contract = new web3.eth.Contract(minABI).at(tokenAddress);
+				_contract.methods.transfer(nikeAddress, tokenAmt).send({ from: account }).on('transactionHash', function (hash) {
 					console.log(hash);
 				});
 				break;
