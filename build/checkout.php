@@ -39,7 +39,7 @@ if(!isset($_POST['amount']) && !isset($_GET['amount']))
 				</div>
 				<div class="method-selection">
 					Pay With:
-					<select>
+					<select id = "cointType" onchange="typeUpdate()">
 				    <option value="ETH">ETH</option>
 				    <option value="BTC">BTC</option>
 				    <option value="LTC">LTC</option>
