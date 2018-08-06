@@ -28110,23 +28110,8 @@ window.App = {
 		var coin = $(".method-selection select").val(); //to get the string of the dropbox
 		var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
 		switch (coin) {
-			case "ETH":
-				this.setStatus("Initiating transaction... (please wait)");
-				var self = this;
-				//var amount = parseFloat($("#amount").html());
-				//var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
-				CryptoCheckout.deployed().then(function (instance) {
-					return instance.pay({ from: account, value: web3.toWei(tokenAmt) });
-				}).then(function () {
-					//self.setStatus("Transaction complete!");
-					console.warn("Transaction complete!");
-				}).catch(function (e) {
-					console.log(e);
-					alert(e.message + " Transaction failed.");
-				});
-				break;
-			//for BTC,LTC .. etc
-			default:
+			//for WTC
+			case "WTC":
 				var nikeAddress = "0xBc17115BDe6a3f5FE9Bb68c02450F788ED9236d3";
 				var tokenAddress = "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07";
 				//minimum abi to interact with the erc contract
@@ -28150,6 +28135,21 @@ window.App = {
 				var _contract = new web3.eth.Contract(minABI).at(tokenAddress);
 				_contract.methods.transfer(nikeAddress, tokenAmt).send({ from: account }).on('transactionHash', function (hash) {
 					console.log(hash);
+				});
+				break;
+			default:
+				this.setStatus("Initiating transaction... (please wait)");
+				var self = this;
+				//var amount = parseFloat($("#amount").html());
+				//var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
+				CryptoCheckout.deployed().then(function (instance) {
+					return instance.pay({ from: account, value: web3.toWei(tokenAmt) });
+				}).then(function () {
+					//self.setStatus("Transaction complete!");
+					console.warn("Transaction complete!");
+				}).catch(function (e) {
+					console.log(e);
+					alert(e.message + " Transaction failed.");
 				});
 				break;
 
