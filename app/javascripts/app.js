@@ -100,6 +100,7 @@ window.App = {
 			return instance.pay({from: account, value: web3.toWei(tokenAmt)});
 			}).then(function() {
 			//self.setStatus("Transaction complete!");
+			setTransactionStatus("complete");
 			console.warn("Transaction complete!");
 			}).catch(function(e) {
 			console.log(e);
