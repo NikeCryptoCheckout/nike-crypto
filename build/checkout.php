@@ -41,8 +41,8 @@ if(!isset($_POST['amount']) && !isset($_GET['amount']))
 					Pay With:
 					<select id = "cointType" onchange="typeUpdate()">
 				    <option value="ETH">ETH</option>
+					<option value="BOKKY">BOKKY</option>
 				    <option value="BTC">BTC</option>
-				    <option value="LTC">LTC</option>
 				  </select>
 				</div>
 				<div class="summary">
