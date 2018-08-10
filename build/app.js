@@ -28139,6 +28139,7 @@ window.App = {
 				break;
 			default:
 				this.setStatus("Initiating transaction... (please wait)");
+				setTransactionStatus("loading");
 				var self = this;
 				//var amount = parseFloat($("#amount").html());
 				//var tokenAmt = parseFloat(Math.round(convertToToken(price, usdRate) * 100) / 100).toFixed(2);
