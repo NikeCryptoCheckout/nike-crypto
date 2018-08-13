@@ -28076,6 +28076,7 @@ window.App = {
 		var self = this;
 		// Bootstrap the CryptoCheckout abstraction for Use.
 		CryptoCheckout.setProvider(web3.currentProvider);
+
 		// Get the initial account balance so it can be displayed.
 		web3.eth.getAccounts(function (err, accs) {
 			if (err != null) {
@@ -28090,8 +28091,8 @@ window.App = {
 			account = accounts[0];
 			setBalance(account);
 		});
+
 		setPrice($("#post-price").html());
-		// check for sufficient balance after unlocking?
 	},
 
 	disablePayment: function disablePayment(message) {

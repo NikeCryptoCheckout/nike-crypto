@@ -1,4 +1,14 @@
 var token = "ETH";
+var price = 0;
+var balance = 0;
+var tokenPrice = 0;
+var usdRate = 0;
+
+var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
+var sdk = new SDK("E0E2D48D-7A91-4E75-A2DD-3BCE376711AA")
+//var sdk = new SDK("CC07C5FD-240C-4A4E-A58A-C7D5FD2D4619")
+
+
 function typeUpdate() {
     var a = document.getElementById("cointType")
     token = a.options[a.selectedIndex].innerHTML;
@@ -12,16 +22,10 @@ function typeUpdate() {
     document.getElementById("price-crypto").innerHTML = "updating";    
     document.getElementById("subtotal").innerHTML = "updating";
     document.getElementById("total").innerHTML = "updating";
+	setInsufficientFunds(false);
     
-    setPrice(document.getElementById("post-price").innerHTML);  
+    setPrice(document.getElementById("post-price").innerHTML);
 }
-var price = 0;
-var balance = 0;
-var usdRate = 0;
-
-var SDK = typeof window !== 'undefined' ? window.COIN_API_SDK : require("./coinapi_v1")["default"]
-var sdk = new SDK("E0E2D48D-7A91-4E75-A2DD-3BCE376711AA")
-//var sdk = new SDK("CC07C5FD-240C-4A4E-A58A-C7D5FD2D4619")
 
 var minABI = [
     {
@@ -104,7 +108,7 @@ function unlock() {
 
 function setInsufficientFunds(insufficient) {
 	$( "#balance" ).removeClass("error");
-		$( "#total" ).removeClass("error");
+	$( "#total" ).removeClass("error");
 	if (insufficient) {
 		$( "#balance" ).addClass("error");
 		$( "#total" ).addClass("error");
@@ -133,8 +137,17 @@ function setPrice(usd) {
             $( "#price-crypto" ).html(tokenFormatted+" " +token);
             $( "#subtotal" ).html(tokenFormatted+" " +token);
             $( "#total" ).html(tokenFormatted+" " +token);
+			tokenPrice = Number(tokenFormatted);
         })
         .then(() => {
+			if(isInsufficient()) {
+				setInsufficientFunds(true);
+				document.getElementById("pay-btn").disabled = true;
+				
+			} else {
+				setInsufficientFunds(false);
+				document.getElementById("pay-btn").disabled = false;
+			}
             unlock();
         })
         .catch((err) => {
@@ -160,7 +173,7 @@ function setBalance(account) {
             }
         });
 
-        return;
+		 return;
     }
 
     var contractAddress = "";
@@ -188,6 +201,13 @@ function setBalance(account) {
             console.error(error);
         }
     });
+}
+
+function isInsufficient() {
+	if(balance < tokenPrice) {
+		return true;
+	}
+	return false;
 }
 
 function setTransactionStatus(status) {
