@@ -61,7 +61,7 @@ window.App = {
 		//for WTC
 		case "WTC":
 			let nikeAddress = "0xBc17115BDe6a3f5FE9Bb68c02450F788ED9236d3";
-			let tokenAddress = "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07";
+			let tokenAddress = "0xB8c77482e45F1F44dE1745F52C74426C631bDD52";
 			//minimum abi to interact with the erc contract
 			let minABI = [ 
 				{
